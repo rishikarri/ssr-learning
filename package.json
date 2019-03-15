@@ -10,18 +10,20 @@
         "bundlesize": "bundlesize",
         "precommit": "eslint src --quiet",
         "clean": "rm -rf dist && mkdir dist",
-        "build-server": "babel -d ./dist ./src/server.js -s"
+        "build-server": "./node_modules/.bin/webpack ./src/server.js",
+        "build-client-bundle": "./node_modules/.bin/webpack ./src/client.js"
     },
     "dependencies": {
+        "babel-core": "7.0.0-bridge.0",
         "react": "^16.0.0",
         "react-dom": "^16.0.0"
     },
     "devDependencies": {
         "@babel/cli": "^7.0.0",
-        "@babel/preset-env": "^7.3.4",
-        "@babel/register": "^7.0.0",
         "@babel/core": "^7.0.0",
+        "@babel/preset-env": "^7.3.4",
         "@babel/preset-react": "^6.3.13",
+        "@babel/register": "^7.0.0",
         "babel-loader": "^7.1.2",
         "bundlesize": "^0.16.0",
         "enzyme": "^3.2.0",

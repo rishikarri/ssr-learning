@@ -7,7 +7,7 @@ import Layout from "./components/Layout";
 
 const app = express();
 
-app.use( express.static( path.resolve( __dirname, "../dist" ) ) );
+// app.use( express.static( path.resolve( __dirname, "../dist" ) ) );
 
 app.get( "/*", ( req, res ) => {
     const jsx = ( <Layout /> );
@@ -34,7 +34,6 @@ function htmlTemplate( reactDom ) {
 
         <body>
             <div id="app">${ reactDom }</div>
-            <script src="./app.bundle.js"></script>
         </body>
 
         </html>

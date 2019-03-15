@@ -20,8 +20,9 @@ module.exports = {
     context: path.join( __dirname, "src" ),
     devtool: dev ? "none" : "source-map",
     entry: {
-        app: "client.js",
+        app: "server.js",
     },
+    target: 'node',
     resolve: {
         modules: [
             path.resolve( "./src" ),
@@ -31,7 +32,7 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.jsx?$/,
+                test: /\.(js|jsx)$/,
                 exclude: /(node_modules|bower_components)/,
                 loader: "babel-loader",
             },
