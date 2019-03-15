@@ -81,10 +81,24 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "./server.js");
+/******/ 	return __webpack_require__(__webpack_require__.s = "../index.js");
 /******/ })
 /************************************************************************/
 /******/ ({
+
+/***/ "../index.js":
+/*!*******************!*\
+  !*** ../index.js ***!
+  \*******************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+__webpack_require__(/*! ./src/server */ "./server.js");
+
+/***/ }),
 
 /***/ "../node_modules/accepts/index.js":
 /*!****************************************!*\
@@ -28607,7 +28621,7 @@ exports.default = Layout;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-
+/* WEBPACK VAR INJECTION */(function(__dirname) {
 
 var _express = __webpack_require__(/*! express */ "../node_modules/express/index.js");
 
@@ -28630,7 +28644,8 @@ var _Layout2 = _interopRequireDefault(_Layout);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var app = (0, _express2.default)();
-app.get("/*", function (req, res) {
+app.use(_express2.default.static(_path2.default.resolve(__dirname, "../client-dist")));
+app.get("/", function (req, res) {
   var jsx = _react2.default.createElement(_Layout2.default, null);
 
   var reactDom = (0, _server.renderToString)(jsx);
@@ -28638,7 +28653,11 @@ app.get("/*", function (req, res) {
     "Content-Type": "text/html"
   });
   res.end(htmlTemplate(reactDom));
-});
+}); // app.get( "/client-bundle.js", ( req, res ) => {
+//     res.writeHead( 200, { "Content-Type": "text/javascript" } );
+//     res.end( 'hi' );
+// } );
+
 app.listen(2048);
 
 function htmlTemplate(reactDom) {
@@ -28647,8 +28666,9 @@ function htmlTemplate(reactDom) {
   // }
   // const hello = hi;
   // hello();
-  return "\n       <!DOCTYPE html>\n        <html>\n        <head>\n        <title>Title of the document</title>\n        </head>\n\n        <body>\n            <div id=\"app\">".concat(reactDom, "</div>\n        </body>\n\n        </html>\n    ");
+  return "\n       <!DOCTYPE html>\n        <html>\n        <head>\n        <title>Title of the document</title>\n        </head>\n\n        <body>\n            <div id=\"app\">".concat(reactDom, "</div>\n            <script src=\"./client-bundle.js\"></script>\n        </body>\n\n        </html>\n    ");
 }
+/* WEBPACK VAR INJECTION */}.call(this, "/"))
 
 /***/ }),
 

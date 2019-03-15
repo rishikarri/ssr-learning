@@ -19,10 +19,6 @@ module.exports = {
     mode: dev ? "development" : "production",
     context: path.join( __dirname, "src" ),
     devtool: dev ? "none" : "source-map",
-    entry: {
-        app: "server.js",
-    },
-    target: 'node',
     resolve: {
         modules: [
             path.resolve( "./src" ),
@@ -40,7 +36,7 @@ module.exports = {
     },
     output: {
         path: path.resolve( __dirname, "dist" ),
-        filename: "app.bundle.js",
+        filename: "[name].bundle.js",
     },
     plugins,
 };

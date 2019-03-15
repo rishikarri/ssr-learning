@@ -10,8 +10,10 @@
         "bundlesize": "bundlesize",
         "precommit": "eslint src --quiet",
         "clean": "rm -rf dist && mkdir dist",
-        "build-server": "./node_modules/.bin/webpack ./src/server.js",
-        "build-client-bundle": "./node_modules/.bin/webpack ./src/client.js"
+        "build-server": "./node_modules/.bin/webpack ./index.js -o dist/server-bundle.js --target='node'",
+        "build-client": "./node_modules/.bin/webpack ./src/client.js -o client-dist/client-bundle.js",
+        "build-bundles": "yarn build-client && yarn build-server",
+        "start": "node ./dist/server-bundle.js"
     },
     "dependencies": {
         "babel-core": "7.0.0-bridge.0",
@@ -22,7 +24,7 @@
         "@babel/cli": "^7.0.0",
         "@babel/core": "^7.0.0",
         "@babel/preset-env": "^7.3.4",
-        "@babel/preset-react": "^6.3.13",
+        "@babel/preset-react": "7.0.0",
         "@babel/register": "^7.0.0",
         "babel-loader": "^7.1.2",
         "bundlesize": "^0.16.0",
@@ -39,7 +41,7 @@
         "husky": "^0.14.3",
         "jest": "^21.2.1",
         "nodemon": "^1.17.2",
-        "webpack": "4.19.1",
+        "webpack": "4.19.0",
         "webpack-bundle-analyzer": "^2.13.1",
         "webpack-cli": "^2.1.4",
         "webpack-dev-server": "^3.0.0",
