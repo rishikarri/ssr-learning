@@ -2,6 +2,7 @@ const dev = process.env.NODE_ENV !== "production";
 const path = require( "path" );
 const { BundleAnalyzerPlugin } = require( "webpack-bundle-analyzer" );
 const FriendlyErrorsWebpackPlugin = require( "friendly-errors-webpack-plugin" );
+// const nodeExternals = require('webpack-node-externals');
 
 const plugins = [
     new FriendlyErrorsWebpackPlugin(),
