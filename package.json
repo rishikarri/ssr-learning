@@ -11,7 +11,7 @@
         "precommit": "eslint src --quiet",
         "clean": "rm -rf dist && mkdir dist",
         "build-server": "./node_modules/.bin/webpack ./index.js -o dist/server-bundle.js --target='node'",
-        "build-client": "./node_modules/.bin/webpack ./src/client.js -o client-dist/client-bundle.js",
+        "build-client": "./node_modules/.bin/webpack ./src/client.js -o dist/client-dist/client-bundle.js",
         "build-bundles": "yarn build-client && yarn build-server",
         "start": "node ./dist/server-bundle.js"
     },
