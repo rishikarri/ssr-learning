@@ -24767,17 +24767,23 @@ module.exports = g;
 "use strict";
 
 
-var _react = _interopRequireDefault(__webpack_require__(/*! react */ "../node_modules/react/index.js"));
+var _react = __webpack_require__(/*! react */ "../node_modules/react/index.js");
 
-var _reactDom = _interopRequireDefault(__webpack_require__(/*! react-dom */ "../node_modules/react-dom/index.js"));
+var _react2 = _interopRequireDefault(_react);
 
-var _Layout = _interopRequireDefault(__webpack_require__(/*! ./components/Layout */ "./components/Layout.js"));
+var _reactDom = __webpack_require__(/*! react-dom */ "../node_modules/react-dom/index.js");
+
+var _reactDom2 = _interopRequireDefault(_reactDom);
+
+var _Layout = __webpack_require__(/*! ./components/Layout */ "./components/Layout.js");
+
+var _Layout2 = _interopRequireDefault(_Layout);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var app = document.getElementById("app");
 
-_reactDom.default.render(_react.default.createElement(_Layout.default, null), app);
+_reactDom2.default.hydrate(_react2.default.createElement(_Layout2.default, null), app);
 
 /***/ }),
 
@@ -24794,9 +24800,11 @@ _reactDom.default.render(_react.default.createElement(_Layout.default, null), ap
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = void 0;
+exports.default = undefined;
 
-var _react = _interopRequireDefault(__webpack_require__(/*! react */ "../node_modules/react/index.js"));
+var _react = __webpack_require__(/*! react */ "../node_modules/react/index.js");
+
+var _react2 = _interopRequireDefault(_react);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -24838,16 +24846,16 @@ function (_React$Component) {
   _createClass(Layout, [{
     key: "render",
     value: function render() {
-      return _react.default.createElement("div", null, _react.default.createElement("button", {
+      return _react2.default.createElement("div", null, _react2.default.createElement("button", {
         onClick: function onClick() {
           console.log('hi');
         }
-      }, "hi"), _react.default.createElement("h1", null, this.state.title));
+      }, "hi"), _react2.default.createElement("h1", null, this.state.title));
     }
   }]);
 
   return Layout;
-}(_react.default.Component);
+}(_react2.default.Component);
 
 exports.default = Layout;
 

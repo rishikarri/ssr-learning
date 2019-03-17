@@ -42,6 +42,7 @@ function htmlTemplate( reactDom ) {
 
         <body>
             <div id="app">${ reactDom }</div>
+            <script src="./client-bundle.js"></script>
         </body>
 
         </html>
