@@ -81,22 +81,10 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "../index.js");
+/******/ 	return __webpack_require__(__webpack_require__.s = "./server.js");
 /******/ })
 /************************************************************************/
 /******/ ({
-
-/***/ "../index.js":
-/*!*******************!*\
-  !*** ../index.js ***!
-  \*******************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-eval("\n\n__webpack_require__(/*! ./src/server */ \"./server.js\");\n\n//# sourceURL=webpack:///../index.js?");
-
-/***/ }),
 
 /***/ "../node_modules/@babel/runtime/helpers/esm/extends.js":
 /*!*************************************************************!*\
@@ -2004,7 +1992,7 @@ eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\n\nvar _express = __webpack_require__(/*! express */ \"../node_modules/express/index.js\");\n\nvar _express2 = _interopRequireDefault(_express);\n\nvar _react = __webpack_require__(/*! react */ \"../node_modules/react/index.js\");\n\nvar _react2 = _interopRequireDefault(_react);\n\nvar _server = __webpack_require__(/*! react-dom/server */ \"../node_modules/react-dom/server.js\");\n\nvar _reactRouterDom = __webpack_require__(/*! react-router-dom */ \"../node_modules/react-router-dom/esm/react-router-dom.js\");\n\nvar _Layout = __webpack_require__(/*! ./components/Layout */ \"./components/Layout.js\");\n\nvar _Layout2 = _interopRequireDefault(_Layout);\n\nvar _nodeEmoji = __webpack_require__(/*! node-emoji */ \"../node_modules/node-emoji/index.js\");\n\nvar _nodeEmoji2 = _interopRequireDefault(_nodeEmoji);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nvar app = (0, _express2.default)();\napp.use(_express2.default.static(\"dist/client-dist\"));\napp.get(\"/*\", function (req, res) {\n  var context = {};\n\n  var reactApp = _react2.default.createElement(_reactRouterDom.StaticRouter, {\n    context: context,\n    location: req.url\n  }, _react2.default.createElement(_Layout2.default, null));\n\n  var htmlMarkup = (0, _server.renderToString)(reactApp);\n  res.writeHead(200, {\n    \"Content-Type\": \"text/html\"\n  });\n  res.end(htmlTemplate(htmlMarkup));\n});\napp.listen(2048);\nconsole.log(_nodeEmoji2.default.get('ear'), ' Listening on port 2048', _nodeEmoji2.default.get('ear'));\n\nfunction htmlTemplate(htmlMarkup) {\n  return \"\\n       <!DOCTYPE html>\\n        <html>\\n        <head>\\n        <title>Title of the document</title>\\n        </head>\\n\\n        <body>\\n            <div id=\\\"app\\\">\".concat(htmlMarkup, \"</div>\\n            <script src=\\\"./client-bundle.js\\\"></script>\\n        </body>\\n        </html>\\n    \");\n}\n\n//# sourceURL=webpack:///./server.js?");
+eval("\n\nvar _express = __webpack_require__(/*! express */ \"../node_modules/express/index.js\");\n\nvar _express2 = _interopRequireDefault(_express);\n\nvar _react = __webpack_require__(/*! react */ \"../node_modules/react/index.js\");\n\nvar _react2 = _interopRequireDefault(_react);\n\nvar _server = __webpack_require__(/*! react-dom/server */ \"../node_modules/react-dom/server.js\");\n\nvar _reactRouterDom = __webpack_require__(/*! react-router-dom */ \"../node_modules/react-router-dom/esm/react-router-dom.js\");\n\nvar _Layout = __webpack_require__(/*! ./components/Layout */ \"./components/Layout.js\");\n\nvar _Layout2 = _interopRequireDefault(_Layout);\n\nvar _nodeEmoji = __webpack_require__(/*! node-emoji */ \"../node_modules/node-emoji/index.js\");\n\nvar _nodeEmoji2 = _interopRequireDefault(_nodeEmoji);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nvar app = (0, _express2.default)();\napp.use(_express2.default.static(\"dist/client-dist\"));\napp.get(\"/*\", function (req, res) {\n  var context = {};\n\n  var reactApp = _react2.default.createElement(_reactRouterDom.StaticRouter, {\n    context: context,\n    location: req.url\n  }, _react2.default.createElement(_Layout2.default, null));\n\n  var htmlMarkup = (0, _server.renderToString)(reactApp);\n  res.writeHead(200, {\n    \"Content-Type\": \"text/html\"\n  });\n  res.end(htmlTemplate(htmlMarkup));\n});\napp.listen(2048);\nconsole.log(_nodeEmoji2.default.get('ear'), ' Listening on port 2048', _nodeEmoji2.default.get('ear'));\n\nfunction htmlTemplate(htmlMarkup) {\n  return \"\\n       <!DOCTYPE html>\\n        <html>\\n        <head>\\n        <title>Title of the document</title>\\n        </head>\\n\\n        <body>\\n            <div id=\\\"app\\\">\".concat(htmlMarkup, \"</div>\\n        </body>\\n        </html>\\n    \");\n}\n\n//# sourceURL=webpack:///./server.js?");
 
 /***/ }),
 

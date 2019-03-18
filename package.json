@@ -8,8 +8,8 @@
         "linter": "eslint src",
         "precommit": "eslint src --quiet",
         "clean": "rm -rf dist && mkdir dist",
-        "build-server": "./node_modules/.bin/webpack ./index.js -o dist/server-bundle.js --target='node'",
-        "build-client": "./node_modules/.bin/webpack ./src/client.js -o dist/client-dist/client-bundle.js",
+        "build-server": "./node_modules/.bin/webpack --config-name='server-webpack-config'",
+        "build-client": "./node_modules/.bin/webpack --config-name='client-webpack-config'",
         "build-bundles": "yarn build-client && yarn build-server",
         "start": "yarn clean && yarn build-bundles && node ./dist/server-bundle.js"
     },
