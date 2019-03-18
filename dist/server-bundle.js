@@ -33966,9 +33966,11 @@ var _Layout = __webpack_require__(/*! ./components/Layout */ "./components/Layou
 
 var _Layout2 = _interopRequireDefault(_Layout);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+var _nodeEmoji = __webpack_require__(/*! node-emoji */ "../node_modules/node-emoji/index.js");
 
-var emoji = __webpack_require__(/*! node-emoji */ "../node_modules/node-emoji/index.js");
+var _nodeEmoji2 = _interopRequireDefault(_nodeEmoji);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var app = (0, _express2.default)();
 app.use(_express2.default.static("dist/client-dist"));
@@ -33976,31 +33978,22 @@ app.get("/*", function (req, res) {
   var context = {};
   console.log(req.url, 'req.url');
 
-  var jsx = _react2.default.createElement(_reactRouterDom.StaticRouter, {
+  var reactApp = _react2.default.createElement(_reactRouterDom.StaticRouter, {
     context: context,
     location: req.url
   }, _react2.default.createElement(_Layout2.default, null));
 
-  var reactDom = (0, _server.renderToString)(jsx);
-
-  if (context.url) {
-    console.log(context.url, 'context.url');
-    res.writeHead(301, {
-      Location: context.url
-    });
-    res.end();
-  } else {
-    res.writeHead(200, {
-      "Content-Type": "text/html"
-    });
-    res.end(htmlTemplate(reactDom));
-  }
+  var htmlMarkup = (0, _server.renderToString)(reactApp);
+  res.writeHead(200, {
+    "Content-Type": "text/html"
+  });
+  res.end(htmlTemplate(htmlMarkup));
 });
 app.listen(2048);
-console.log(emoji.get('ear'), ' Listening on port 2048', emoji.get('ear'));
+console.log(_nodeEmoji2.default.get('ear'), ' Listening on port 2048', _nodeEmoji2.default.get('ear'));
 
-function htmlTemplate(reactDom) {
-  return "\n       <!DOCTYPE html>\n        <html>\n        <head>\n        <title>Title of the document</title>\n        </head>\n\n        <body>\n            <div id=\"app\">".concat(reactDom, "</div>\n            <script src=\"./client-bundle.js\"></script>\n        </body>\n\n        </html>\n    ");
+function htmlTemplate(htmlMarkup) {
+  return "\n       <!DOCTYPE html>\n        <html>\n        <head>\n        <title>Title of the document</title>\n        </head>\n\n        <body>\n            <div id=\"app\">".concat(htmlMarkup, "</div>\n            <script src=\"./client-bundle.js\"></script>\n        </body>\n        </html>\n    ");
 }
 
 /***/ }),
