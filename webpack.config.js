@@ -1,6 +1,6 @@
 const isProdEnv = process.env.NODE_ENV === "production";
 const path = require("path");
-// const nodeExternals = require('webpack-node-externals');
+const nodeExternals = require('webpack-node-externals');
 
 module.exports = [
     {
@@ -15,6 +15,7 @@ module.exports = [
             ],
         },
         entry: './server.js',
+        externals: [nodeExternals()],
         module: {
             rules: [
                 {
