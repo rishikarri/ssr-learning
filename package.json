@@ -4,21 +4,20 @@
     "description": "",
     "main": "webpack.config.js",
     "scripts": {
-        "build": "NODE_ENV=production webpack --progress",
         "dev": "webpack --watch --progress & nodemon index.js",
         "linter": "eslint src",
-        "bundlesize": "bundlesize",
         "precommit": "eslint src --quiet",
         "clean": "rm -rf dist && mkdir dist",
         "build-server": "./node_modules/.bin/webpack ./index.js -o dist/server-bundle.js --target='node'",
         "build-client": "./node_modules/.bin/webpack ./src/client.js -o dist/client-dist/client-bundle.js",
         "build-bundles": "yarn build-client && yarn build-server",
-        "start": "node ./dist/server-bundle.js"
+        "start": "yarn clean && yarn build-bundles && node ./dist/server-bundle.js"
     },
     "dependencies": {
         "babel-core": "7.0.0-bridge.0",
         "react": "^16.0.0",
-        "react-dom": "^16.0.0"
+        "react-dom": "^16.0.0",
+        "react-router-dom": "^4.4.0"
     },
     "devDependencies": {
         "@babel/cli": "^7.0.0",
