@@ -5,7 +5,6 @@ const path = require( "path" );
 module.exports = {
     mode: isProdEnv ? "production" : "development",
     context: path.join( __dirname, "src" ),
-    devtool: dev ? "none" : "source-map",
     resolve: {
         modules: [
             path.resolve( "./src" ),
