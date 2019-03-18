@@ -33976,7 +33976,6 @@ var app = (0, _express2.default)();
 app.use(_express2.default.static("dist/client-dist"));
 app.get("/*", function (req, res) {
   var context = {};
-  console.log(req.url, 'req.url');
 
   var reactApp = _react2.default.createElement(_reactRouterDom.StaticRouter, {
     context: context,

@@ -1,23 +1,9 @@
-const dev = process.env.NODE_ENV !== "production";
+const isProdEnv = process.env.NODE_ENV === "production";
 const path = require( "path" );
-const { BundleAnalyzerPlugin } = require( "webpack-bundle-analyzer" );
-const FriendlyErrorsWebpackPlugin = require( "friendly-errors-webpack-plugin" );
 // const nodeExternals = require('webpack-node-externals');
 
-const plugins = [
-    new FriendlyErrorsWebpackPlugin(),
-];
-
-if ( !dev ) {
-    plugins.push( new BundleAnalyzerPlugin( {
-        analyzerMode: "static",
-        reportFilename: "webpack-report.html",
-        openAnalyzer: false,
-    } ) );
-}
-
 module.exports = {
-    mode: dev ? "development" : "production",
+    mode: isProdEnv ? "production" : "development",
     context: path.join( __dirname, "src" ),
     devtool: dev ? "none" : "source-map",
     resolve: {
@@ -38,6 +24,5 @@ module.exports = {
     output: {
         path: path.resolve( __dirname, "dist" ),
         filename: "[name].bundle.js",
-    },
-    plugins,
+    }
 };
