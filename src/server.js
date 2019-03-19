@@ -43,6 +43,7 @@ function htmlTemplate(htmlMarkup) {
 
         <body>
             <div id="app">${ htmlMarkup }</div>
+            <script src="./client-bundle.js"></script>
         </body>
         </html>
     `;
