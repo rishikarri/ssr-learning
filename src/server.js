@@ -3,7 +3,7 @@ import React from "react";
 import { renderToString } from "react-dom/server";
 import { StaticRouter } from "react-router-dom";
 import Layout from "./components/Layout";
-import emoji from "node-emoji"
+import emoji from "node-emoji";
 
 const app = express();
 
@@ -16,9 +16,18 @@ app.get( "/*", ( req, res ) => {
             <Layout />
         </StaticRouter>
     );
+
     const htmlMarkup = renderToString( reactApp );
-    res.writeHead( 200, { "Content-Type": "text/html" } );
-    res.end(htmlTemplate(htmlMarkup));
+
+    if (context.url) {
+        res.writeHead(302, {
+            Location: context.url
+        });
+        res.end();
+    } else {
+        res.writeHead(200, { "Content-Type": "text/html" });
+        res.end(htmlTemplate(htmlMarkup));
+    }
 } );
 
 app.listen( 2048 );
@@ -34,7 +43,6 @@ function htmlTemplate(htmlMarkup) {
 
         <body>
             <div id="app">${ htmlMarkup }</div>
-            <script src="./client-bundle.js"></script>
         </body>
         </html>
     `;

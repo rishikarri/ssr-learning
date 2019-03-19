@@ -1,9 +1,10 @@
 import React from "react";
-import { Link, Switch, Route } from "react-router-dom";
+import { Link, Switch, Route, Redirect } from "react-router-dom";
 
 const Home = () => <div>home</div>
 const About = () => <div>about</div>
-const Contact = () => <div>contact</div>
+const Contact = () => <div><Redirect to="/dashboard" /></div>
+const Dashboard = () => <div>dashboard</div>
 
 export default class Layout extends React.Component {
     constructor() {
@@ -28,7 +29,10 @@ export default class Layout extends React.Component {
                 <Switch>
                     <Route path="/" exact component={Home} />
                     <Route path="/about" exact component={About} />
-                    <Route path="/contact" exact component={Contact} />
+                    <Route path="/dashboard" exact component={Dashboard} />
+                    <Route path="/contact" exact render={() => (
+                        <Redirect to="/dashboard" />
+                    )} />
                 </Switch>
             </div>
         );
